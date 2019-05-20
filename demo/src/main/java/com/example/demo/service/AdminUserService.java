@@ -10,7 +10,7 @@ import com.github.pagehelper.PageInfo;
  * @version 1.0<br>
  * @taskId: <br>
  * @createDate 2019/05/06 14:51 <br>
- * @see com.lanxum.platform.service <br>
+ * @see com.example.demo.service <br>
  */
 public interface AdminUserService {
 	AdminUser selectOneUserByPhone(String telephoneNumber);

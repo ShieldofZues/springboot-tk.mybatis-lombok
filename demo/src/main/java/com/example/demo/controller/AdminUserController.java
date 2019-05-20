@@ -1,12 +1,12 @@
 package com.example.demo.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.lanxum.platform.entity.AdminUser;
-import com.lanxum.platform.service.AdminUserService;
-import com.lanxum.platform.util.Md5Util;
-import com.lanxum.platform.util.ResultInfoVO;
-import com.lanxum.platform.util.ResultMessage;
-import com.lanxum.platform.util.SessionUserUtil;
+import com.example.demo.entity.AdminUser;
+import com.example.demo.service.AdminUserService;
+import com.example.demo.util.Md5Util;
+import com.example.demo.util.ResultInfoVO;
+import com.example.demo.util.ResultMessage;
+import com.example.demo.util.SessionUserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +20,7 @@ import javax.servlet.http.HttpServletRequest;
  * @version 1.0<br>
  * @taskId: <br>
  * @createDate 2019/05/06 14:52 <br>
- * @see com.lanxum.platform.controller <br>
+ * @see com.example.demo.controller <br>
  */
 @RestController
 @RequestMapping("/adminUser")

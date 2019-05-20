@@ -70,7 +70,7 @@
             <!--当配置 Data 后，Getter Setter ToString EqualsAndHashCode 会被忽略-->
             <property name="lombok" value="Getter,Setter,Data,ToString,Accessors,EqualsAndHashCode"/>
             <!-- 此处的 BaseMapper注意一定不能被扫描到-->
-            <property name="mappers" value="com.lanxum.platform.BaseMapper"/>
+            <property name="mappers" value="com.example.demo.BaseMapper"/>
             <!-- caseSensitive 是否区分大小写，默认值 false。如果数据库区分大小写，这里就需要配置为 true，这样当表名为 USER 时，
              会生成 @Table(name = "USER") 注解，否则使用小写 user 时会找不到表。-->
             <property name="caseSensitive" value="true"/>
@@ -106,7 +106,7 @@
             <property name="forceBigDecimals" value="false"/>
         </javaTypeResolver>
         <!--生成Model类存放位置-->
-        <javaModelGenerator targetPackage="com.lanxum.platform.entity" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.example.demo.entity" targetProject="src/main/java">
             <!-- 设置是否在getter方法中，对String类型字段调用trim()方法 -->
             <property name="trimStrings" value="true"/>
             <!--  for MyBatis3/MyBatis3Simple 自动为每一个生成的类创建一个构造方法，构造方法包含了所有的field；而不是使用setter；-->
@@ -131,7 +131,7 @@
                 type="MIXEDMAPPER",生成基于注解的Java Model 和相应的Mapper对象
                 type="XMLMAPPER",生成SQLMap XML文件和独立的Mapper接口
         -->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.lanxum.platform.mapper" targetProject="src/main/java">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.example.demo.mapper" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
         <!--生成对应表及类名-->

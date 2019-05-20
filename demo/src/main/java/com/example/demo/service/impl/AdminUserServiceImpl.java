@@ -3,11 +3,11 @@ package com.example.demo.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.github.pagehelper.util.StringUtil;
-import com.lanxum.platform.entity.AdminUser;
-import com.lanxum.platform.mapper.AdminUserMapper;
-import com.lanxum.platform.service.AdminUserService;
-import com.lanxum.platform.util.DateSqlUtil;
-import com.lanxum.platform.util.Md5Util;
+import com.example.demo.entity.AdminUser;
+import com.example.demo.mapper.AdminUserMapper;
+import com.example.demo.service.AdminUserService;
+import com.example.demo.util.DateSqlUtil;
+import com.example.demo.util.Md5Util;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -21,7 +21,7 @@ import tk.mybatis.mapper.entity.Example;
  * @version 1.0<br>
  * @taskId: <br>
  * @createDate 2019/05/06 14:51 <br>
- * @see com.lanxum.platform.service.impl <br>
+ * @see com.example.demo.service.impl <br>
  */
 @Service
 @Validated
