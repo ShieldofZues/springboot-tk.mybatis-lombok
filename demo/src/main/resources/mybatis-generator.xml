@@ -63,21 +63,6 @@
         <!-- 序列化 -->
         <!--<plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>-->
 
-        <!-- include the plugin -->
-        <plugin type="com.softwareloop.mybatis.generator.plugins.LombokPlugin">
-            <!-- enable annotations -->
-            <property name="builder" value="true"/>
-            <!-- annotation's option(boolean) -->
-            <property name="builder.fluent" value="true"/>
-            <!-- annotation's option(String) -->
-            <property name="builder.builderMethodName" value="myBuilder"/>
-            <property name="accessors" value="true"/>
-            <!-- annotation's option(array of String) -->
-            <property name="accessors.prefix" value="m_, _"/>
-            <!-- disable annotations -->
-            <property name="allArgsConstructor" value="false"/>
-        </plugin>
-
         <plugin type="mybatis.generator.plugins.GeneratorSwagger2Doc">
             <property name="apiModelAnnotationPackage" value="io.swagger.annotations.ApiModel"/>
             <property name="apiModelPropertyAnnotationPackage" value="io.swagger.annotations.ApiModelProperty"/>
@@ -98,8 +83,23 @@
             <!--forceAnnotation 是否强制生成注解，默认 false，如果设置为 true，不管数据库名和字段名是否一致，都会生成注解（包含 @Table 和 @Column）。-->
             <property name="forceAnnotation" value="true"/>
             <property name="generateColumnConsts" value="true"/>
-            <!--未知原因 不好用<property name="lombok" value="Getter,Setter,ToString,Accessors"/>-->
         </plugin>
+
+<!--        &lt;!&ndash; include the plugin &ndash;&gt;
+        <plugin type="com.softwareloop.mybatis.generator.plugins.LombokPlugin">
+            &lt;!&ndash; @Builder注解 enable annotations &ndash;&gt;
+            <property name="builder" value="true"/>
+            &lt;!&ndash; annotation's option(boolean) &ndash;&gt;
+            <property name="builder.fluent" value="true"/>
+            &lt;!&ndash; annotation's option(String) &ndash;&gt;
+            <property name="builder.builderMethodName" value="myBuilder"/>
+            <property name="accessors" value="true"/>
+            &lt;!&ndash; annotation's option(array of String) &ndash;&gt;
+            <property name="accessors.prefix" value="m_, _"/>
+            &lt;!&ndash; disable annotations &ndash;&gt;
+            <property name="allArgsConstructor" value="false"/>
+        </plugin>-->
+
         <commentGenerator>
             <property name="suppressDate" value="true"/><!-- 是否生成注释代时间戳-->
             <property name="suppressAllComments" value="true"/><!-- 是否取消注释 -->
