@@ -22,7 +22,7 @@ public class HttpAspect {
 	private final static Logger logger = LoggerFactory.getLogger(HttpAspect.class);
 
 	//@Pointcut("execution(public * com.example.demo.service.AdminSalespersonService.*(..))")
-	@Pointcut("within(com.example.demo.controller..*) && !within(com.example.demo.controller.AdminUserController)")
+	@Pointcut("within(com.example.demo.controller..*) && !within(com.example.demo.controller.UserController)")
 	public void pointCutMethod() {
 	}
 

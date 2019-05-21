@@ -1,8 +1,7 @@
 package com.example.demo.controller;
 
 import com.github.pagehelper.PageInfo;
-import com.example.demo.entity.AdminUser;
-import com.example.demo.service.AdminUserService;
+import com.example.demo.service.UserService;
 import com.example.demo.util.Md5Util;
 import com.example.demo.util.ResultInfoVO;
 import com.example.demo.util.ResultMessage;
@@ -23,19 +22,19 @@ import javax.servlet.http.HttpServletRequest;
  * @see com.example.demo.controller <br>
  */
 @RestController
-@RequestMapping("/adminUser")
-public class AdminUserController {
+@RequestMapping("/User")
+public class UserController {
 	@Autowired
-	private AdminUserService adminUserService;
+	private UserService userService;
 
 	@PostMapping("/login")
-	public ResultInfoVO userLogin(@RequestBody AdminUser adminUser, HttpServletRequest request) {
-		if (null == adminUser || StringUtils.isEmpty(adminUser.getAdminPassword()) || StringUtils.isEmpty(adminUser.getTelephoneNumber())) {
+	public ResultInfoVO userLogin(@RequestBody User User, HttpServletRequest request) {
+		if (null == User || StringUtils.isEmpty(User.getAdminPassword()) || StringUtils.isEmpty(User.getTelephoneNumber())) {
 			return new ResultInfoVO(ResultMessage.ERROR.code, null, ResultMessage.USR_LOGIN_ERROR.message);
 		} else {
-			AdminUser admin = adminUserService.selectOneUserByPhone(adminUser.getTelephoneNumber());
+			User admin = UserService.selectOneUserByPhone(User.getTelephoneNumber());
 			if (null != admin) {
-				if (null != admin.getAdminPassword() && Md5Util.validPassword(adminUser.getAdminPassword(), admin.getAdminPassword())) {
+				if (null != admin.getAdminPassword() && Md5Util.validPassword(User.getAdminPassword(), admin.getAdminPassword())) {
 					SessionUserUtil.setUser(admin, request);
 					return new ResultInfoVO(ResultMessage.SUCCESS.code, admin, ResultMessage.SUCCESS.message);
 				} else {
@@ -48,14 +47,14 @@ public class AdminUserController {
 	}
 
 	@PostMapping("/saveOneUser")
-	public ResultInfoVO saveOneUser(@RequestBody AdminUser adminUser) {
-		if (null == adminUser || StringUtils.isEmpty(adminUser.getAdminPassword()) || StringUtils.isEmpty(adminUser.getTelephoneNumber())) {
+	public ResultInfoVO saveOneUser(@RequestBody User User) {
+		if (null == User || StringUtils.isEmpty(User.getAdminPassword()) || StringUtils.isEmpty(User.getTelephoneNumber())) {
 			return new ResultInfoVO(ResultMessage.FAIL.code, null, ResultMessage.FAIL.message);
 		} else {
-			if (adminUserService.isExistUser(adminUser.getTelephoneNumber()) > 0) {
+			if (UserService.isExistUser(User.getTelephoneNumber()) > 0) {
 				return new ResultInfoVO(ResultMessage.USR_REPE_USER.code, null, ResultMessage.USR_REPE_USER.message);
 			} else {
-				if (adminUserService.saveOneUser(adminUser) > 0) {
+				if (UserService.saveOneUser(User) > 0) {
 					return new ResultInfoVO(ResultMessage.SUCCESS.code, null, ResultMessage.SUCCESS.message);
 				} else {
 					return new ResultInfoVO(ResultMessage.ERROR.code, null, ResultMessage.ERROR.message);
@@ -65,14 +64,14 @@ public class AdminUserController {
 	}
 
 	@PutMapping("/updateOneUser")
-	public ResultInfoVO updateOneUser(@RequestBody AdminUser adminUser) {
-		if (null == adminUser  || StringUtils.isEmpty(adminUser.getAdminUserId())) {
+	public ResultInfoVO updateOneUser(@RequestBody User User) {
+		if (null == User  || StringUtils.isEmpty(User.getUserId())) {
 			return new ResultInfoVO(ResultMessage.FAIL.code, null, ResultMessage.FAIL.message);
 		} else {
-			if ( !StringUtils.isEmpty(adminUser.getTelephoneNumber()) && adminUserService.isExistUser(adminUser.getTelephoneNumber()) > 0) {
+			if ( !StringUtils.isEmpty(User.getTelephoneNumber()) && UserService.isExistUser(User.getTelephoneNumber()) > 0) {
 				return new ResultInfoVO(ResultMessage.USR_REPE_USER.code, null, ResultMessage.USR_REPE_USER.message);
 			} else {
-				if (adminUserService.updateOneUser(adminUser) > 0) {
+				if (UserService.updateOneUser(User) > 0) {
 					return new ResultInfoVO(ResultMessage.SUCCESS.code, null, ResultMessage.SUCCESS.message);
 				} else {
 					return new ResultInfoVO(ResultMessage.ERROR.code, null, ResultMessage.ERROR.message);
@@ -84,9 +83,9 @@ public class AdminUserController {
 
 	@GetMapping("/selectAllUser")
 	public ResultInfoVO selectAllUser(HttpServletRequest request) {
-		PageInfo<AdminUser> adminUserPageInfo = adminUserService.selectAllUser(request.getParameter("pageNum"), request.getParameter("pageSize"), request.getParameter("startDate"), request.getParameter("endDate"));
-		if (null != adminUserPageInfo && !StringUtils.isEmpty(adminUserPageInfo.getList())) {
-			return new ResultInfoVO(ResultMessage.SUCCESS.code, adminUserPageInfo, ResultMessage.SUCCESS.message);
+		PageInfo<User> UserPageInfo = UserService.selectAllUser(request.getParameter("pageNum"), request.getParameter("pageSize"), request.getParameter("startDate"), request.getParameter("endDate"));
+		if (null != UserPageInfo && !StringUtils.isEmpty(UserPageInfo.getList())) {
+			return new ResultInfoVO(ResultMessage.SUCCESS.code, UserPageInfo, ResultMessage.SUCCESS.message);
 		} else {
 			return new ResultInfoVO(ResultMessage.SEC_SUCCESS.code, null, ResultMessage.SEC_SUCCESS.message);
 		}

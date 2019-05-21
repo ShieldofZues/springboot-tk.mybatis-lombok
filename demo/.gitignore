@@ -1,0 +1,35 @@
+HELP.md
+/target/
+-f *.mvn/*
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+/test/
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+/build/
+
+### VS Code ###
+.vscode/
+/demo.iml
+/mvnw.cmd
+-f /.mvn/
+/mvnw
+-f /src/test/
+/HELP.md
