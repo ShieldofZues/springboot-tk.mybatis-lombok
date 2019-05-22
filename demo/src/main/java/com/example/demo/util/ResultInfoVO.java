@@ -1,15 +1,23 @@
 package com.example.demo.util;
 
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 /**
- * @author zlr
+ * @author shieldofzues
  * @version V1.0
  */
+
+/**
+ *
+ * 限制返回值（属性）为NULL时，不返回
+ */
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ResultInfoVO<T> {
 
     private Integer code;
 
-    private Object data;
+    private T data;
 
     private String message;
 
@@ -21,11 +29,11 @@ public class ResultInfoVO<T> {
         this.code = code;
     }
 
-    public Object getData() {
+    public T getData() {
         return data;
     }
 
-    public void setData(Object data) {
+    public void setData(T data) {
         this.data = data;
     }
 
@@ -39,7 +47,7 @@ public class ResultInfoVO<T> {
 
 
 
-    public ResultInfoVO(Integer code, Object data, String message) {
+    public ResultInfoVO(Integer code, T data, String message) {
         this.code = code;
         this.data = data;
         this.message = message;

@@ -63,7 +63,8 @@
         <!-- 序列化 -->
         <!--<plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>-->
 
-        <!-- include the plugin -->
+        <!-- 因下【1】处配置未知原因不生效，所以用此处的LombokPlugin插件生成 include the plugin -->
+        <!--Java 之 Builder模式使用 推荐解读:https://blog.csdn.net/ethanq/article/details/7185610-->
         <plugin type="com.softwareloop.mybatis.generator.plugins.LombokPlugin">
             <!-- enable annotations -->
             <property name="builder" value="true"/>
@@ -77,17 +78,17 @@
             <!-- disable annotations -->
             <property name="allArgsConstructor" value="false"/>
         </plugin>
-
+        <!-- 自动为entity生成swagger2文档-->
         <plugin type="mybatis.generator.plugins.GeneratorSwagger2Doc">
             <property name="apiModelAnnotationPackage" value="io.swagger.annotations.ApiModel"/>
             <property name="apiModelPropertyAnnotationPackage" value="io.swagger.annotations.ApiModelProperty"/>
         </plugin>
 
-        <!-- other configurations -->
+        <!-- 通用mapper -->
         <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
             <!--配置是否启用lombok, 支持如下6种注解-->
-            <!--当配置 Data 后，Getter Setter ToString EqualsAndHashCode 会被忽略-->
-            <property name="lombok" value="Getter,Setter,Data,ToString,Accessors,EqualsAndHashCode"/>
+            <!--&lt;!&ndash;【1】当配置 Data 后，Getter Setter ToString EqualsAndHashCode 会被忽略&ndash;&gt;
+            <property name="lombok" value="Getter,Setter,Data,ToString,Accessors,EqualsAndHashCode"/>-->
             <!-- 此处的 BaseMapper注意一定不能被扫描到-->
             <property name="mappers" value="com.example.demo.common.BaseMapper"/>
             <!-- caseSensitive 是否区分大小写，默认值 false。如果数据库区分大小写，这里就需要配置为 true，这样当表名为 USER 时，
@@ -98,7 +99,6 @@
             <!--forceAnnotation 是否强制生成注解，默认 false，如果设置为 true，不管数据库名和字段名是否一致，都会生成注解（包含 @Table 和 @Column）。-->
             <property name="forceAnnotation" value="true"/>
             <property name="generateColumnConsts" value="true"/>
-            <!--未知原因 不好用<property name="lombok" value="Getter,Setter,ToString,Accessors"/>-->
         </plugin>
         <commentGenerator>
             <property name="suppressDate" value="true"/><!-- 是否生成注释代时间戳-->
@@ -305,28 +305,28 @@
                column:要重新设置的列名；
                注意，一个table元素中可以有多个columnOverride元素哈~
              -->
-            <columnOverride column="name">
-                <!-- 使用property属性来指定列要生成的属性名称 -->
+            <!--<columnOverride column="name">
+                &lt;!&ndash; 使用property属性来指定列要生成的属性名称 &ndash;&gt;
                 <property name="property" value="snnnname"/>
 
-                <!-- javaType用于指定生成的domain的属性类型，使用类型的全限定名
+                &lt;!&ndash; javaType用于指定生成的domain的属性类型，使用类型的全限定名
                 <property name="javaType" value=""/>
-                 -->
+                 &ndash;&gt;
 
-                <!-- jdbcType用于指定该列的JDBC类型
+                &lt;!&ndash; jdbcType用于指定该列的JDBC类型
                 <property name="jdbcType" value=""/>
-                 -->
+                 &ndash;&gt;
 
-                <!-- typeHandler 用于指定该列使用到的TypeHandler，如果要指定，配置类型处理器的全限定名
+                &lt;!&ndash; typeHandler 用于指定该列使用到的TypeHandler，如果要指定，配置类型处理器的全限定名
                     注意，mybatis中，不会生成到mybatis-config.xml中的typeHandler
                     只会生成类似：where id = #{id,jdbcType=BIGINT,typeHandler=com._520it.mybatis.MyTypeHandler}的参数描述
                 <property name="jdbcType" value=""/>
-                -->
+                &ndash;&gt;
 
-                <!-- 参考table元素的delimitAllColumns配置，默认为false
+                &lt;!&ndash; 参考table元素的delimitAllColumns配置，默认为false
                 <property name="delimitedColumnName" value=""/>
-                 -->
-            </columnOverride>
+                 &ndash;&gt;
+            </columnOverride>-->
 
             <!-- ignoreColumn设置一个MGB忽略的列，如果设置了改列，那么在生成的domain中，生成的SQL中，都不会有该列出现
                column:指定要忽略的列的名字；

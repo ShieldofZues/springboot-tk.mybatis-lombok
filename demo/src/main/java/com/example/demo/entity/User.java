@@ -3,9 +3,13 @@ package com.example.demo.entity;
 import com.example.demo.common.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import javax.persistence.*;
 import lombok.Builder;
 import lombok.Data;
+
+import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @ApiModel(value="com.example.demo.entity.User")
 @Data
