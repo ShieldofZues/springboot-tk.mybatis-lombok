@@ -11,10 +11,11 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * @Auther: shieldofzues
- * @Date: 2018/10/11 15:54
- * @Description:
- */
+ * @Author shieldofzues
+ * @Description aop
+ * @Date 15:51 2016/5/23
+ *
+ **/
 @Aspect
 @Component
 public class HttpAspect {

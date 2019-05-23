@@ -3,16 +3,18 @@ package com.example.demo.util;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 
-/**
- * @author shieldofzues
- * @version V1.0
- */
 
 /**
  *
  * 限制返回值（属性）为NULL时，不返回
  */
 @JsonInclude(JsonInclude.Include.NON_NULL)
+/**
+ * @Author shieldofzues
+ * @Description ResultInfoVO
+ * @Date 9:50 2016/5/23
+ *
+ **/
 public class ResultInfoVO<T> {
 
     private Integer code;

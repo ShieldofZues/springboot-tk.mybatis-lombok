@@ -11,10 +11,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 /**
- * 统一处理
- */
+ * @Author shieldofzues
+ * @Description 统一处理
+ * @Date 11:10 2016/5/23
+ *
+ **/
+
 @ControllerAdvice
 public class GlobalExceptionHandler {
 	private final static Logger logger = LoggerFactory.getLogger(GlobalExceptionHandler.class);

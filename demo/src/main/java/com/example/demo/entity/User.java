@@ -11,7 +11,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
-
+/**
+ * @Author shieldofzues
+ * @Description User
+ * @Date 15:50 2016/5/23
+ *
+ **/
 @ApiModel(value="com.example.demo.entity.User")
 @Data
 @Builder

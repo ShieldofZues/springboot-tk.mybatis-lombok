@@ -1,10 +1,11 @@
 package com.example.demo.util;
 
 /**
- * @Auther: shieldofzues
- * @Date: 2018/10/8 11:04
- * @Description:
- */
+ * @Author shieldofzues
+ * @Description ResultMessage
+ * @Date 9:50 2016/5/23
+ *
+ **/
 public enum ResultMessage {
     SUCCESS(1001, "操作成功!"),
     FAIL(1002, "参数错误"),

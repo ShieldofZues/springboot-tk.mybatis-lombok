@@ -3,10 +3,11 @@ package com.example.demo.exception;
 import com.example.demo.util.ResultMessage;
 
 /**
- * @Auther: shieldofzues
- * @Date: 2018/10/11 14:49
- * @Description:
- */
+ * @Author shieldofzues
+ * @Description CustomException
+ * @Date 11:12 2016/5/23
+ *
+ **/
 public class CustomException extends RuntimeException{
     private Integer code;
 

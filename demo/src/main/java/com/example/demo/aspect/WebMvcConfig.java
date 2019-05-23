@@ -6,10 +6,11 @@ import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 /**
- * @Auther: shieldofzues
- * @Date: 2018/10/12 11:40
- * @Description:
- */
+ * @Author shieldofzues
+ * @Description WebMvcConfigurationSupport
+ * @Date 12:50 2016/5/23
+ *
+ **/
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurationSupport {
 	/**

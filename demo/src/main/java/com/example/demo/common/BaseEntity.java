@@ -7,8 +7,11 @@ import java.io.Serializable;
 import java.util.Arrays;
 
 /**
- * BaseEntity
- */
+ * @Author shieldofzues
+ * @Description BaseEntity
+ * @Date 11:50 2016/5/23
+ *
+ **/
 public abstract class BaseEntity implements Serializable {
 
 	@Override

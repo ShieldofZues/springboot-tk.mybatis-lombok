@@ -10,7 +10,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
+/**
+ * @Author shieldofzues
+ * @Description 用户管理
+ * @Date 16:50 2016/5/23
+ *
+ **/
 @Api("用户管理")
 @RestController
 @RequestMapping("/user")
