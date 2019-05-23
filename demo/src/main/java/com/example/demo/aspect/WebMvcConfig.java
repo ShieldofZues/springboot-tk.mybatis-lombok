@@ -12,23 +12,31 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
  */
 @Configuration
 public class WebMvcConfig extends WebMvcConfigurationSupport {
-    /*
-     * 静态资源本地映射
-     *
-     * */
-    @Override public void addResourceHandlers(ResourceHandlerRegistry registry) {
-            registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
-    }
+	/**
+	 * 前端跨域
+	 */
 
-    /**
-     * 前端跨域
-     */
+	@Override
+	public void addCorsMappings(CorsRegistry registry) {
+		registry.addMapping("/**")//设置允许跨域的路径
+				.allowedOrigins("*")//设置允许跨域请求的域名
+				.allowCredentials(true)//是否允许证书 不再默认开启
+				.allowedMethods("GET", "POST", "PUT", "DELETE")//设置允许的方法
+				.maxAge(3600);//跨域允许时间
+	}
 
-    @Override public void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**")//设置允许跨域的路径
-            .allowedOrigins("*")//设置允许跨域请求的域名
-            .allowCredentials(true)//是否允许证书 不再默认开启
-            .allowedMethods("GET", "POST", "PUT", "DELETE")//设置允许的方法
-            .maxAge(3600);//跨域允许时间
-    }
+	/*
+	 * 静态资源本地映射
+	 *
+	 * */
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry.addResourceHandler("/static/**")
+				.addResourceLocations("classpath:/static/");
+		registry.addResourceHandler("swagger-ui.html")
+				.addResourceLocations("classpath:/META-INF/resources/");
+		registry.addResourceHandler("/webjars/**")
+				.addResourceLocations("classpath:/META-INF/resources/webjars/");
+		super.addResourceHandlers(registry);
+	}
 }

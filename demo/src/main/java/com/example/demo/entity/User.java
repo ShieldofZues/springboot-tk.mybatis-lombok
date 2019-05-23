@@ -10,6 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 @ApiModel(value="com.example.demo.entity.User")
 @Data
@@ -26,18 +27,11 @@ public class User extends BaseEntity {
     private Integer id;
 
     /**
-     * 个人信息
+     * 姓名
      */
-    @Column(name = "info")
-    @ApiModelProperty(value="info个人信息")
-    private String info;
-
-    /**
-     * 性别
-     */
-    @Column(name = "sex")
-    @ApiModelProperty(value="sex性别")
-    private Byte sex;
+    @Column(name = "name")
+    @ApiModelProperty(value="name姓名")
+    private String name;
 
     /**
      * 年龄
@@ -47,9 +41,30 @@ public class User extends BaseEntity {
     private Byte age;
 
     /**
-     * 姓名
+     * 性别
      */
-    @Column(name = "name")
-    @ApiModelProperty(value="name姓名")
-    private String name;
+    @Column(name = "sex")
+    @ApiModelProperty(value="sex性别")
+    private Byte sex;
+
+    /**
+     * 个人信息
+     */
+    @Column(name = "info")
+    @ApiModelProperty(value="info个人信息")
+    private String info;
+
+    /**
+     * 创建时间
+     */
+    @Column(name = "gmt_create")
+    @ApiModelProperty(value="gmtCreate创建时间")
+    private Date gmtCreate;
+
+    /**
+     * 修改时间
+     */
+    @Column(name = "gmt_modified")
+    @ApiModelProperty(value="gmtModified修改时间")
+    private Date gmtModified;
 }

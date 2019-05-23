@@ -229,6 +229,7 @@
 
             注意，table里面很多参数都是对javaModelGenerator，context等元素的默认属性的一个复写；
          -->
+        <!--生成全部表tableName设为%-->
         <table tableName="user">
 
             <!-- 参考 javaModelGenerator 的 constructorBased属性-->
