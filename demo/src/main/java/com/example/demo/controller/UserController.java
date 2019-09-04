@@ -4,6 +4,7 @@ import com.example.demo.entity.User;
 import com.example.demo.service.UserService;
 import com.example.demo.util.ResultInfoVO;
 import com.example.demo.util.ResultMessage;
+import com.example.demo.util.Severitys;
 import io.swagger.annotations.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
@@ -30,12 +31,9 @@ public class UserController {
             @ApiResponse(code = 400, message = "请求参数没填好"), // 响应对应编码的描述
             @ApiResponse(code = 404, message = "请求路径没有或页面跳转路径不对")
     })
-    /**
-     *  @Validated({Severitys.Update.class}) 可以做类似这种的分组校验
-     */
 
     @PostMapping("/insertUser")
-    public ResultInfoVO insertSelective(@RequestBody @ApiParam(value = "新增用户实体") @Validated User user) {
+    public ResultInfoVO insertSelective(@RequestBody @ApiParam(value = "新增用户实体") @Validated({Severitys.Insert.class}) User user) {
         if (userService.insertSelective(user) > 0) {
             return new ResultInfoVO(ResultMessage.SUCCESS.code, null, ResultMessage.SUCCESS.message);
         } else {
