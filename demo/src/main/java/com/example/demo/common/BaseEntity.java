@@ -30,7 +30,6 @@ public abstract class BaseEntity implements Serializable {
 						stringBuffer.append("");
 					}
 					stringBuffer.append(",");
-                    //strToReturn.append(System.getProperty("line.separator"));
 				});
 		stringBuffer.insert(0, "{").insert(stringBuffer.length(), "}");
 		return stringBuffer.toString();
