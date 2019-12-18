@@ -45,7 +45,7 @@ spring:
             allow: true
         test-on-borrow: true
         type: com.alibaba.druid.pool.DruidDataSource
-        url: jdbc:mysql://localhost:3306/demo?serverTimezone=GMT&useUnicode=true&characterEncoding=utf-8&useSSL=true
+        url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf-8&useSSL=true
         username: root
     devtools:
         restart:
