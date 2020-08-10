@@ -1,58 +1,62 @@
 logging:
-    level:
-        com:
-            example:
-                demo:
-                    dzpj:
-                        mapper: debug
+  level:
+    com:
+      example:
+        demo:
+          dzpj:
+            mapper: debug
 management:
-    endpoint:
-        health:
-            show-details: always
-    endpoints:
-        web:
-            exposure:
-                include: '*'
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: '*'
 mapper:
-    identity: MYSQL
+  identity: MYSQL
 mybatis:
-    mapper-locations: classpath:mapper/*.xml
-    type-aliases-package: com.example.demo.entity
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.example.demo.entity
 pagehelper:
-    helperDialect: mysql
-    params: count=countSql
-    reasonable: true
-    supportMethodsArguments: true
+  helperDialect: mysql
+  params: count=countSql
+  reasonable: true
+  supportMethodsArguments: true
 restart:
-    include:
-        mapper: /mapper-[\w-\.]+jar
-        pagehelper: /pagehelper-[\w-\.]+jar
+  include:
+    mapper: /mapper-[\w-\.]+jar
+    pagehelper: /pagehelper-[\w-\.]+jar
 server:
-    port: 8080
-    servlet:
-        path: /
-    session-timeout: 30
-    tomcat:
-        uri-encoding: UTF-8
+  port: 8080
+  servlet:
+    path: /
+  session-timeout: 30
+  tomcat:
+    uri-encoding: UTF-8
 spring:
-    datasource:
-        driver-class-name: com.mysql.cj.jdbc.Driver
-        initial-size: 1
-        max-active: 20
-        min-idle: 1
-        password: 123456
-        stat-view-servlet:
-            allow: true
-        test-on-borrow: true
-        type: com.alibaba.druid.pool.DruidDataSource
-        url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf-8&useSSL=true
-        username: root
-    devtools:
-        restart:
-            additional-paths: src/main/java
-            enabled: true
-    http:
-        encoding:
-            charset: UTF-8
-            enabled: true
-            force: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    initial-size: 1
+    max-active: 20
+    min-idle: 1
+    password: 12345678
+    stat-view-servlet:
+      allow: true
+    test-on-borrow: true
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: root
+    #
+    xa:
+      properties:
+        useInformationSchema: true
+  devtools:
+    restart:
+      additional-paths: src/main/java
+      enabled: true
+  http:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
